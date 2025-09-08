@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Desktop — Cheat Code Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0969da;
+            --primary-dark: #0550ae;
+            --secondary: #6e7681;
+            --background: #ffffff;
+            --surface: #f6f8fa;
+            --border: #d0d7de;
+            --text: #24292f;
+            --text-light: #656d76;
+            --success: #1a7f37;
+            --warning: #9a6700;
+            --danger: #cf222e;
+            --code-bg: #f6f8fa;
+            --code-border: #d0d7de;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background-color: var(--background);
+        }
+
+        main {
+            padding: 2rem 0;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            color: var(--text);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        p, li {
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        ul, ol {
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .code-header {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px 6px 0 0;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: background-color 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .copy-btn:active {
+            background: var(--success);
+        }
+
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.85rem;
+        }
+
+        .alert {
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+
+        .alert-info {
+            background-color: #dbeafe;
+            border-left-color: var(--primary);
+            color: var(--primary-dark);
+        }
+
+        .alert-warning {
+            background-color: #fef3c7;
+            border-left-color: var(--warning);
+            color: var(--warning);
+        }
+
+        .alert-danger {
+            background-color: #fee2e2;
+            border-left-color: var(--danger);
+            color: var(--danger);
+        }
+
+        .alert-success {
+            background-color: #dcfce7;
+            border-left-color: var(--success);
+            color: var(--success);
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .checklist {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc li {
+            padding: 0.25rem 0;
+        }
+
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        .workflow-diagram {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .workflow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .workflow-step {
+            background: var(--background);
+            border: 2px solid var(--primary);
+            border-radius: 6px;
+            padding: 1rem;
+            min-width: 120px;
+            flex: 1;
+        }
+
+        .workflow-arrow {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .workflow-steps {
+                flex-direction: column;
+            }
+
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">GitHub Desktop — Cheat Codes</a>
+                <nav role="navigation" aria-label="Navegación principal">
+                    <ul>
+                        <li><a href="#fundamentos" aria-label="Ir a fundamentos">Fundamentos</a></li>
+                        <li><a href="#github-pages" aria-label="Ir a GitHub Pages">GitHub Pages</a></li>
+                        <li><a href="#trabajo-local" aria-label="Ir a trabajo local">Trabajo Local</a></li>
+                        <li><a href="#gitflow" aria-label="Ir a GitFlow">GitFlow</a></li>
+                        <li><a href="#problemas" aria-label="Ir a resolución de problemas">Problemas</a></li>
+                        <li><a href="#glosario" aria-label="Ir a glosario de términos">Glosario</a></li>
+                        <li><a href="#practica" aria-label="Ir a área de práctica">Práctica</a></li>
+                        <li><a href="#playbook" aria-label="Ir a playbook diario">Playbook</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>GitHub Desktop — Cheat Code Page</h1>
+            
+            <div class="toc">
+                <h3>Índice de contenidos</h3>
+                <ul>
+                    <li><a href="#fundamentos">🚀 Fundamentos rápidos de Git y GitHub Desktop</a></li>
+                    <li><a href="#github-pages">🌐 Cómo desplegar en GitHub Pages</a></li>
+                    <li><a href="#trabajo-local">💻 Trabajo local con GitHub Desktop</a></li>
+                    <li><a href="#gitflow">🌊 GitFlow - Flujo de trabajo profesional</a></li>
+                    <li><a href="#problemas">🔧 Resolución de problemas comunes</a></li>
+                    <li><a href="#glosario">📖 Glosario de términos</a></li>
+                    <li><a href="#practica">🎯 Área de práctica y contribuciones</a></li>
+                    <li><a href="#playbook">📋 Playbook rápido (checklist diario)</a></li>
+                </ul>
+            </div>
+
+            <section id="fundamentos" class="section">
+                <h2>🚀 Fundamentos rápidos de Git y GitHub Desktop</h2>
+
+                <div class="workflow-diagram">
+                    <h4>Flujo básico de trabajo</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <strong>Working Directory</strong><br>
+                            <small>Archivos modificados</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>Staging Area</strong><br>
+                            <small>Cambios preparados</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>Repository</strong><br>
+                            <small>Commits guardados</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Conceptos clave</h3>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>Working Directory (Directorio de Trabajo)</h4>
+                        <p>Los archivos en tu carpeta del proyecto. Aquí haces cambios, creas archivos nuevos, editas código.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Staging Area (Área de Preparación)</h4>
+                        <p>Los cambios que has seleccionado para incluir en el próximo commit. En GitHub Desktop aparecen con checkmarks.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Repository (Repositorio)</h4>
+                        <p>La base de datos de Git que guarda todos los commits y el historial de tu proyecto.</p>
+                    </div>
+
+                    <div class="card">
+                        <h4>Commits Atómicos</h4>
+                        <p>Cada commit debe representar un cambio lógico y completo. Ejemplo: "Agregar validación de email" no "Cambios varios".</p>
+                    </div>
+                </div>
+
+                <h3>Ramas (Branches)</h3>
+                <p>Las ramas te permiten trabajar en características diferentes sin afectar el código principal:</p>
+
+                <div class="alert alert-info">
+                    <strong>Mejor práctica:</strong> Siempre crea una rama nueva para cada característica o bugfix. Nunca trabajes directamente en <code>main</code> o <code>master</code>.
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Convención de nombres de ramas</span>
+                        <button class="copy-btn" onclick="copyToClipboard('branch-names')">Copiar</button>
+                    </div>
+                    <pre id="branch-names">
+# Ejemplos de nombres de ramas descriptivos
+feature/login-system
+feature/payment-integration
+bugfix/header-responsive
+hotfix/security-patch
+docs/api-documentation</pre>
+                </div>
+
+                <h3>Pull Requests (PR)</h3>
+                <p>Una Pull Request es una propuesta para fusionar cambios de una rama a otra. Permite:</p>
+                <ul>
+                    <li>Revisión de código antes del merge</li>
+                    <li>Discusión sobre los cambios</li>
+                    <li>Tests automáticos</li>
+                    <li>Historial claro de cambios</li>
+                </ul>
+            </section>
+
+            <section id="github-pages" class="section">
+                <h2>🌐 Cómo desplegar en GitHub Pages</h2>
+
+                <h3>Opción 1: Desde la interfaz de GitHub (Recomendado)</h3>
+                <ol>
+                    <li>Ve a tu repositorio en GitHub.com</li>
+                    <li>Haz clic en <strong>Settings</strong> (Configuración)</li>
+                    <li>Scroll hacia abajo hasta <strong>Pages</strong></li>
+                    <li>En "Source", selecciona <strong>Deploy from a branch</strong></li>
+                    <li>Selecciona la rama (usualmente <code>main</code>) y carpeta (<code>/ (root)</code> o <code>/docs</code>)</li>
+                    <li>Haz clic en <strong>Save</strong></li>
+                </ol>
+
+                <div class="alert alert-success">
+                    <strong>¡Listo!</strong> Tu sitio estará disponible en <code>https://tuusuario.github.io/tu-repositorio</code> en unos minutos.
+                </div>
+
+                <h3>Opción 2: Con GitHub CLI (Opcional)</h3>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>PowerShell/CMD</span>
+                        <button class="copy-btn" onclick="copyToClipboard('gh-pages-cmd')">Copiar</button>
+                    </div>
+                    <pre id="gh-pages-cmd">
+# Instalar GitHub CLI primero
+winget install GitHub.cli
+
+# Habilitar GitHub Pages
+gh api repos/:owner/:repo/pages -X POST -f source[branch]=main -f source[path]=/</pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Bash/Linux/macOS</span>
+                        <button class="copy-btn" onclick="copyToClipboard('gh-pages-bash')">Copiar</button>
+                    </div>
+                    <pre id="gh-pages-bash">
+# Instalar GitHub CLI
+# Ubuntu/Debian: sudo apt install gh
+# macOS: brew install gh
+
+# Habilitar GitHub Pages
+gh api repos/:owner/:repo/pages -X POST -f source[branch]=main -f source[path]=/</pre>
+                </div>
+
+                <h3>Consideraciones importantes</h3>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>Rama de despliegue</h4>
+                        <ul>
+                            <li><strong>main:</strong> Más común, despliega desde la rama principal</li>
+                            <li><strong>gh-pages:</strong> Rama dedicada solo para el sitio web</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Carpeta de origen</h4>
+                        <ul>
+                            <li><strong>/ (root):</strong> Todo el repositorio</li>
+                            <li><strong>/docs:</strong> Solo contenido de la carpeta docs/</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-warning">
+                    <strong>Nota:</strong> Los repositorios privados requieren GitHub Pro para usar GitHub Pages. Los repositorios públicos lo tienen gratis.
+                </div>
+
+                <h3>Troubleshooting común</h3>
+                <ul>
+                    <li><strong>404 Error:</strong> Verifica que tengas un archivo <code>index.html</code> en la raíz o carpeta seleccionada</li>
+                    <li><strong>Cambios no se reflejan:</strong> GitHub Pages puede tardar hasta 10 minutos en actualizar</li>
+                    <li><strong>CSS/JS no carga:</strong> Verifica las rutas relativas en tu HTML</li>
+                </ul>
+            </section>
+
+            <section id="trabajo-local" class="section">
+                <h2>💻 Trabajo local con GitHub Desktop</h2>
+
+                <h3>Clonar un repositorio</h3>
+                <ol>
+                    <li>Abre GitHub Desktop</li>
+                    <li>Haz clic en <strong>File → Clone repository</strong></li>
+                    <li>Selecciona desde GitHub.com o pega la URL</li>
+                    <li>Escoge la carpeta local donde clonar</li>
+                    <li>Haz clic en <strong>Clone</strong></li>
+                </ol>
+
+                <h3>Crear una nueva rama</h3>
+                <ol>
+                    <li>En GitHub Desktop, haz clic en <strong>Current branch</strong></li>
+                    <li>Haz clic en <strong>New branch</strong></li>
+                    <li>Escribe un nombre descriptivo (ej: <code>feature/contact-form</code>)</li>
+                    <li>Haz clic en <strong>Create branch</strong></li>
+                </ol>
+
+                <h3>Commits parciales por línea</h3>
+                <p>Una de las características más poderosas de GitHub Desktop:</p>
+
+                <ol>
+                    <li>Ve a la pestaña <strong>Changes</strong></li>
+                    <li>Haz clic en un archivo modificado</li>
+                    <li>En la vista de diferencias, haz clic en los números de línea</li>
+                    <li>Selecciona solo las líneas que quieres incluir en este commit</li>
+                    <li>Escribe un mensaje de commit descriptivo</li>
+                    <li>Haz clic en <strong>Commit to [nombre-de-rama]</strong></li>
+                </ol>
+
+                <div class="alert alert-info">
+                    <strong>Pro tip:</strong> Usa commits parciales para separar lógicamente tus cambios. Por ejemplo, un commit para la funcionalidad y otro para la documentación.
+                </div>
+
+                <h3>Push a GitHub</h3>
+                <ol>
+                    <li>Después de hacer commits locales, haz clic en <strong>Push origin</strong></li>
+                    <li>Si es una rama nueva, GitHub Desktop te preguntará si quieres publicarla</li>
+                    <li>Haz clic en <strong>Publish branch</strong></li>
+                </ol>
+
+                <h3>Crear Pull Request desde Desktop</h3>
+                <ol>
+                    <li>Haz push de tu rama</li>
+                    <li>En GitHub Desktop, haz clic en <strong>Create Pull Request</strong></li>
+                    <li>Te llevará al navegador para completar la PR</li>
+                    <li>Llena el título y descripción</li>
+                    <li>Haz clic en <strong>Create pull request</strong></li>
+                </ol>
+
+                <h3>Stash (Guardar cambios temporalmente)</h3>
+                <div class="alert alert-info">
+                    GitHub Desktop maneja el stash automáticamente cuando cambias de ramas. Tus cambios no confirmados se guardan automáticamente.
+                </div>
+
+                <h3>Amend (Modificar el último commit)</h3>
+                <ol>
+                    <li>Realiza cambios adicionales</li>
+                    <li>En la parte inferior izquierda, marca <strong>Amend last commit</strong></li>
+                    <li>Modifica el mensaje si es necesario</li>
+                    <li>Haz clic en <strong>Commit to [rama]</strong></li>
+                </ol>
+
+                <div class="alert alert-warning">
+                    <strong>Cuidado:</strong> Solo usa amend en commits que NO hayas pusheado aún. Amend de commits pusheados causa problemas.
+                </div>
+
+                <h3>Merge vs Rebase</h3>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>Merge</h4>
+                        <ul>
+                            <li>Conserva el historial completo</li>
+                            <li>Crea un commit de merge</li>
+                            <li>Más seguro para principiantes</li>
+                            <li>Historial puede verse "sucio"</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>Rebase</h4>
+                        <ul>
+                            <li>Historial lineal y limpio</li>
+                            <li>No crea commits de merge</li>
+                            <li>Más arriesgado si no entiendes bien</li>
+                            <li>Nunca rebase commits públicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="gitflow" class="section">
+                <h2>🌊 GitFlow - Flujo de trabajo profesional</h2>
+                
+                <div class="alert alert-info">
+                    <strong>GitFlow es una metodología de branching</strong> diseñada para proyectos con ciclos de release estructurados. Ideal para equipos que necesitan mantener múltiples versiones y un flujo de desarrollo organizado.
+                </div>
+
+                <h3>🏗️ Estructura de ramas en GitFlow</h3>
+                
+                <div class="workflow-diagram">
+                    <h4>Diagrama del flujo GitFlow</h4>
+                    <!--<div style="text-align: center; padding: 2rem; background: var(--surface); border-radius: 8px; margin: 1.5rem 0;">
+                        <div style="display: flex; justify-content: space-around; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                            <div style="background: #4a90e2; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Main</div>
+                            <div style="background: #e74c3c; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Hotfix</div>
+                            <div style="background: #16a085; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Release</div>
+                            <div style="background: #9b59b6; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Develop</div>
+                            <div style="background: #27ae60; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Feature</div>
+                            <div style="background: #27ae60; color: white; padding: 0.5rem 1rem; border-radius: 4px; font-weight: bold;">Feature</div>
+                        </div>
+                        <div style="font-family: monospace; font-size: 0.9rem; line-height: 1.8; text-align: left; max-width: 600px; margin: 0 auto;">
+                            <div style="color: #4a90e2;">main ────●────●────────────────●─────→</div>
+                            <div style="color: #e74c3c;">hotfix     ╱●╲</div>
+                            <div style="color: #16a085;">release       ╱●╲    ╱●──●╲</div>
+                            <div style="color: #9b59b6;">develop ●──●──●──●──●──●──●──●──●──●──→</div>
+                            <div style="color: #27ae60;">feature    ╱●──●╲  ╱●──●╲</div>
+                            <div style="color: #27ae60;">feature ●──●──●──●</div>
+                        </div>
+                        <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                            ● = commits | ╱╲ = merge | → = rama continúa
+                        </div>
+                    </div>-->
+                    <img src="Img/GItFlow.png">
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🎯 Main (Producción)</h4>
+                        <p><strong>Propósito:</strong> Código estable listo para producción</p>
+                        <p><strong>Protección:</strong> Solo recibe merges de release y hotfix</p>
+                        <p><strong>Tags:</strong> Cada merge se etiqueta con versión (v1.0.0)</p>
+                        <div class="alert alert-danger">
+                            <small><strong>Regla:</strong> NUNCA desarrollar directamente en main</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔄 Develop (Integración)</h4>
+                        <p><strong>Propósito:</strong> Rama de integración continua</p>
+                        <p><strong>Recibe:</strong> Features completados y merges desde main</p>
+                        <p><strong>Estado:</strong> Siempre debe estar funcional para testing</p>
+                        <div class="alert alert-success">
+                            <small><strong>Base:</strong> Todas las features salen de develop</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🚀 Feature/&lt;ticket&gt;</h4>
+                        <p><strong>Propósito:</strong> Desarrollo de nuevas características</p>
+                        <p><strong>Naming:</strong> <code>feature/login-system</code>, <code>feature/US-123</code></p>
+                        <p><strong>Flujo:</strong> Sale de develop → PR a develop</p>
+                        <div class="alert alert-info">
+                            <small><strong>Merge:</strong> Usar "Squash & merge" para historial limpio</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📦 Release</h4>
+                        <p><strong>Propósito:</strong> Preparar nueva versión para producción</p>
+                        <p><strong>Contenido:</strong> Bug fixes menores, ajustes de versión</p>
+                        <p><strong>Flujo:</strong> develop → release → main (+ tag) → develop</p>
+                        <div class="alert alert-warning">
+                            <small><strong>No features:</strong> Solo fixes y preparación de release</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🚨 Hotfix</h4>
+                        <p><strong>Propósito:</strong> Arreglos críticos en producción</p>
+                        <p><strong>Urgencia:</strong> Bugs críticos que no pueden esperar</p>
+                        <p><strong>Flujo:</strong> main → hotfix → main (+ tag) → develop</p>
+                        <div class="alert alert-danger">
+                            <small><strong>Emergencia:</strong> Único caso donde se toca main directamente</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📋 Flujo de trabajo paso a paso</h3>
+
+                <h4>🎯 1. Desarrollo de Feature</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comandos para nueva feature</span>
+                        <button class="copy-btn" onclick="copyToClipboard('feature-flow')">Copiar</button>
+                    </div>
+                    <pre id="feature-flow">
+# 1. Asegúrate de estar en develop actualizado
+git checkout develop
+git pull origin develop
+
+# 2. Crear nueva rama feature
+git checkout -b feature/TICKET-123-login-system
+
+# 3. Desarrollar y hacer commits
+git add .
+git commit -m "feat: agregar formulario de login"
+git commit -m "feat: agregar validación de credenciales"
+
+# 4. Push de la rama
+git push origin feature/TICKET-123-login-system
+
+# 5. Crear PR: feature/TICKET-123 → develop
+# 6. Revisar, aprobar y usar "Squash & merge"</pre>
+                </div>
+
+                <div class="checklist">
+                    <h4>En GitHub Desktop - Feature</h4>
+                    <ul>
+                        <li>Cambiar a rama develop</li>
+                        <li>Pull latest changes</li>
+                        <li>Create new branch: <code>feature/TICKET-123-descripcion</code></li>
+                        <li>Desarrollar y hacer commits frecuentes</li>
+                        <li>Push branch cuando esté listo</li>
+                        <li>Create Pull Request → develop</li>
+                        <li>En GitHub.com: usar "Squash and merge"</li>
+                    </ul>
+                </div>
+
+                <h4>📦 2. Preparar Release</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comandos para release</span>
+                        <button class="copy-btn" onclick="copyToClipboard('release-flow')">Copiar</button>
+                    </div>
+                    <pre id="release-flow">
+# 1. Crear rama release desde develop
+git checkout develop
+git pull origin develop
+git checkout -b release/v1.2.0
+
+# 2. Ajustes finales (versión, changelog, etc.)
+git add .
+git commit -m "chore: bump version to 1.2.0"
+git commit -m "docs: update changelog for v1.2.0"
+
+# 3. Push rama release
+git push origin release/v1.2.0
+
+# 4. PR: release/v1.2.0 → main
+# 5. Merge y crear tag v1.2.0
+# 6. PR: main → develop (para sincronizar)</pre>
+                </div>
+
+                <h4>🚨 3. Hotfix de Emergencia</h4>
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comandos para hotfix</span>
+                        <button class="copy-btn" onclick="copyToClipboard('hotfix-flow')">Copiar</button>
+                    </div>
+                    <pre id="hotfix-flow">
+# 1. Crear hotfix desde main
+git checkout main
+git pull origin main
+git checkout -b hotfix/v1.2.1-critical-security-fix
+
+# 2. Aplicar el fix mínimo necesario
+git add .
+git commit -m "fix: resolve critical security vulnerability"
+
+# 3. Push hotfix
+git push origin hotfix/v1.2.1-critical-security-fix
+
+# 4. PR urgente: hotfix → main (+ tag v1.2.1)
+# 5. PR: main → develop (sincronizar el fix)</pre>
+                </div>
+
+                <h3>⚡ GitFlow vs GitHub Flow</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🌊 GitFlow (Complejo)</h4>
+                        <p><strong>Ideal para:</strong></p>
+                        <ul>
+                            <li>Equipos grandes (5+ developers)</li>
+                            <li>Releases programados</li>
+                            <li>Múltiples versiones en producción</li>
+                            <li>Productos con ciclos de QA extensos</li>
+                        </ul>
+                        <div class="alert alert-warning">
+                            <small><strong>Complejidad:</strong> Requiere disciplina y coordinación</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>⚡ GitHub Flow (Simple)</h4>
+                        <p><strong>Ideal para:</strong></p>
+                        <ul>
+                            <li>Equipos pequeños (2-5 developers)</li>
+                            <li>Despliegues continuos</li>
+                            <li>Aplicaciones web modernas</li>
+                            <li>Startups y proyectos ágiles</li>
+                        </ul>
+                        <div class="alert alert-success">
+                            <small><strong>Simplicidad:</strong> Solo main + feature branches</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔧 Configuración de ramas protegidas</h3>
+                
+                <div class="alert alert-info">
+                    <strong>Configuración recomendada en GitHub:</strong> Protege main y develop para evitar pushes directos accidentales.
+                </div>
+
+                <div class="checklist">
+                    <h4>Settings → Branches → Add rule</h4>
+                    <ul>
+                        <li><strong>Branch name pattern:</strong> <code>main</code></li>
+                        <li>✅ Require pull request reviews before merging</li>
+                        <li>✅ Dismiss stale PR approvals when new commits are pushed</li>
+                        <li>✅ Require status checks to pass before merging</li>
+                        <li>✅ Require branches to be up to date before merging</li>
+                        <li>✅ Include administrators (para disciplina del equipo)</li>
+                    </ul>
+                </div>
+
+                <h3>📊 Ejemplo práctico: Ciclo completo</h3>
+                
+                <div class="workflow-diagram">
+                    <h4>Ejemplo: Desarrollo de feature "User Profile"</h4>
+                    <div class="workflow-steps" style="flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div class="workflow-step" style="background: #9b59b6; color: white;">
+                                <strong>develop</strong><br>
+                                <small>Punto de partida</small>
+                            </div>
+                            <div class="workflow-arrow">↓</div>
+                            <div class="workflow-step" style="background: #27ae60; color: white;">
+                                <strong>feature/USER-456-profile</strong><br>
+                                <small>3 días desarrollo</small>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step" style="background: #9b59b6; color: white;">
+                                <strong>PR → develop</strong><br>
+                                <small>Code review + Squash merge</small>
+                            </div>
+                        </div>
+                        
+                        <div style="margin: 1rem 0; padding: 1rem; background: var(--code-bg); border-radius: 6px;">
+                            <strong>Timeline:</strong><br>
+                            • Día 1: Crear feature branch, setup básico<br>
+                            • Día 2: Implementar UI y lógica<br>
+                            • Día 3: Tests y refinamiento<br>
+                            • Día 4: PR, review, merge a develop
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                            <div class="workflow-step" style="background: #9b59b6; color: white;">
+                                <strong>develop</strong><br>
+                                <small>Con 5 features listas</small>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step" style="background: #16a085; color: white;">
+                                <strong>release/v2.1.0</strong><br>
+                                <small>Testing final</small>
+                            </div>
+                            <div class="workflow-arrow">→</div>
+                            <div class="workflow-step" style="background: #4a90e2; color: white;">
+                                <strong>main + tag v2.1.0</strong><br>
+                                <small>Deploy a producción</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>🎯 Resultado:</strong> Flujo organizado, historial limpio, releases controlados y capacidad de hotfixes de emergencia sin interrumpir el desarrollo.
+                </div>
+
+                <h3>💡 Consejos para implementar GitFlow</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>✅ Mejores prácticas</h4>
+                        <ul>
+                            <li>Nombres consistentes: <code>feature/TICKET-123-description</code></li>
+                            <li>Commits frecuentes en features</li>
+                            <li>Squash merge para features</li>
+                            <li>Tags automáticos en releases</li>
+                            <li>CI/CD en develop y main</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>❌ Errores comunes</h4>
+                        <ul>
+                            <li>Desarrollar directamente en develop/main</li>
+                            <li>Features muy grandes (>1 semana)</li>
+                            <li>No sincronizar main → develop después de hotfix</li>
+                            <li>Merge commits innecesarios</li>
+                            <li>Releases sin testing adecuado</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="problemas" class="section">
+                <h2>🔧 Resolución de problemas comunes</h2>
+
+                <h3>1. "Olvidé incluir líneas en el commit" → Amend</h3>
+
+                <div class="alert alert-info">
+                    <strong>Situación:</strong> Hiciste un commit pero se te olvidaron algunos cambios que deberían ir juntos.
+                </div>
+
+                <p><strong>Solución en GitHub Desktop:</strong></p>
+                <ol>
+                    <li>Haz los cambios que faltaron</li>
+                    <li>Ve a Changes</li>
+                    <li>Marca la casilla <strong>"Amend last commit"</strong></li>
+                    <li>Haz clic en <strong>Commit to [rama]</strong></li>
+                </ol>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comando equivalente en terminal</span>
+                        <button class="copy-btn" onclick="copyToClipboard('amend-cmd')">Copiar</button>
+                    </div>
+                    <pre id="amend-cmd">
+# Agregar cambios al staging
+git add .
+
+# Amend del último commit
+git commit --amend --no-edit</pre>
+                </div>
+
+                <h3>2. "Me equivoqué en un commit ya pusheado" → Revert</h3>
+
+                <div class="alert alert-danger">
+                    <strong>Situación:</strong> Hiciste push de un commit que tiene errores o no debería existir.
+                </div>
+
+                <p><strong>Solución en GitHub Desktop:</strong></p>
+                <ol>
+                    <li>Ve a <strong>History</strong></li>
+                    <li>Encuentra el commit problemático</li>
+                    <li>Haz clic derecho sobre él</li>
+                    <li>Selecciona <strong>Revert this commit</strong></li>
+                    <li>Push del commit de revert</li>
+                </ol>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comando equivalente en terminal</span>
+                        <button class="copy-btn" onclick="copyToClipboard('revert-cmd')">Copiar</button>
+                    </div>
+                    <pre id="revert-cmd">
+# Revertir un commit específico
+git revert [hash-del-commit]
+
+# Revertir el último commit
+git revert HEAD</pre>
+                </div>
+
+                <h3>3. "Conflicto de merge" → Resolución visual</h3>
+
+                <div class="alert alert-warning">
+                    <strong>Situación:</strong> Al hacer merge o pull, Git no puede combinar automáticamente los cambios.
+                </div>
+
+                <p><strong>Pasos en GitHub Desktop:</strong></p>
+                <ol>
+                    <li>GitHub Desktop te mostrará los archivos en conflicto</li>
+                    <li>Haz clic en cada archivo con conflicto</li>
+                    <li>Verás las diferencias marcadas con <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> y <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></li>
+                    <li>Edita manualmente el archivo para resolver el conflicto</li>
+                    <li>Guarda el archivo</li>
+                    <li>En GitHub Desktop, marca el archivo como resuelto</li>
+                    <li>Haz commit del merge</li>
+                </ol>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Ejemplo de conflicto de merge</span>
+                        <button class="copy-btn" onclick="copyToClipboard('merge-conflict')">Copiar</button>
+                    </div>
+                    <pre id="merge-conflict">
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+const title = "Mi aplicación web";
+=======
+const title = "Aplicación de tareas";
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/new-title
+
+// Después de resolver:
+const title = "Mi aplicación de tareas";</pre>
+                </div>
+
+                <h3>4. "Archivos grandes" → Git LFS</h3>
+
+                <div class="alert alert-info">
+                    <strong>Situación:</strong> Necesitas versionar archivos grandes (>50MB) como imágenes, videos, etc.
+                </div>
+
+                <p><strong>Configurar Git LFS:</strong></p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>PowerShell/CMD</span>
+                        <button class="copy-btn" onclick="copyToClipboard('lfs-setup-cmd')">Copiar</button>
+                    </div>
+                    <pre id="lfs-setup-cmd">
+# Instalar Git LFS
+git lfs install
+
+# Trackear tipos de archivo específicos
+git lfs track "*.psd"
+git lfs track "*.mp4"
+git lfs track "*.zip"
+
+# Agregar el archivo .gitattributes
+git add .gitattributes
+git commit -m "Add Git LFS tracking"</pre>
+                </div>
+
+                <h3>5. "Problemas CRLF/LF" → .gitattributes</h3>
+
+                <div class="alert alert-warning">
+                    <strong>Situación:</strong> Diferencias de salto de línea entre Windows (CRLF) y Mac/Linux (LF) causan cambios fantasma.
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>.gitattributes (crear en raíz del proyecto)</span>
+                        <button class="copy-btn" onclick="copyToClipboard('gitattributes')">Copiar</button>
+                    </div>
+                    <pre id="gitattributes">
+# Archivos de texto: normalizar saltos de línea
+* text=auto
+
+# Archivos específicos siempre LF
+*.js text eol=lf
+*.ts text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+
+# Archivos binarios
+*.png binary
+*.jpg binary
+*.pdf binary</pre>
+                </div>
+
+                <h3>6. "Permisos/rama protegida"</h3>
+
+                <div class="alert alert-danger">
+                    <strong>Error típico:</strong> "You're not authorized to push to this branch" o "Branch protection rules"
+                </div>
+
+                <p><strong>Soluciones:</strong></p>
+                <ul>
+                    <li><strong>Crear PR:</strong> En lugar de push directo a main, crea una rama y Pull Request</li>
+                    <li><strong>Permisos:</strong> Contacta al dueño del repo para que te dé permisos de escritura</li>
+                    <li><strong>Fork:</strong> Haz fork del proyecto y trabaja en tu copia</li>
+                </ul>
+
+                <h3>7. "Credenciales HTTPS vs SSH"</h3>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>HTTPS (Más fácil)</h4>
+                        <ul>
+                            <li>Usa tu usuario/password de GitHub</li>
+                            <li>O Personal Access Token</li>
+                            <li>Funciona en redes corporativas</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>SSH (Más seguro)</h4>
+                        <ul>
+                            <li>Requiere generar llaves SSH</li>
+                            <li>No requiere password cada vez</li>
+                            <li>Más rápido después de configurar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Generar llave SSH</span>
+                        <button class="copy-btn" onclick="copyToClipboard('ssh-keygen')">Copiar</button>
+                    </div>
+                    <pre id="ssh-keygen">
+# Generar nueva llave SSH
+ssh-keygen -t ed25519 -C "tu-email@ejemplo.com"
+
+# Agregar llave al ssh-agent
+ssh-add ~/.ssh/id_ed25519
+
+# Copiar llave pública (Windows)
+type ~/.ssh/id_ed25519.pub | clip
+
+# Copiar llave pública (Mac)
+pbcopy &lt; ~/.ssh/id_ed25519.pub</pre>
+                </div>
+
+                <div class="alert alert-info">
+                    Después de copiar la llave, ve a GitHub.com → Settings → SSH and GPG keys → New SSH key y pégala.
+                </div>
+            </section>
+
+            <section id="glosario" class="section">
+                <h2>📖 Glosario de términos</h2>
+                
+                <div class="alert alert-info">
+                    <strong>Diccionario completo de Git y GitHub</strong> - Todos los términos que necesitas conocer para dominar el control de versiones, organizados alfabéticamente con ejemplos prácticos.
+                </div>
+
+                <h3>🔤 A - C</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>📁 Branch (Rama)</h4>
+                        <p><strong>Definición:</strong> Una línea independiente de desarrollo que permite trabajar en características diferentes sin afectar el código principal.</p>
+                        <p><strong>Ejemplo:</strong> <code>feature/login-system</code>, <code>bugfix/header-issue</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Current Branch → New Branch</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>💾 Commit</h4>
+                        <p><strong>Definición:</strong> Una instantánea de tu proyecto en un momento específico. Cada commit tiene un mensaje descriptivo y un hash único.</p>
+                        <p><strong>Ejemplo:</strong> <code>feat: agregar validación de email</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Changes → Commit to [branch]</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📋 Clone</h4>
+                        <p><strong>Definición:</strong> Crear una copia local de un repositorio remoto en tu máquina.</p>
+                        <p><strong>Ejemplo:</strong> <code>git clone https://github.com/user/repo.git</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> File → Clone Repository</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔀 Checkout</h4>
+                        <p><strong>Definición:</strong> Cambiar entre ramas o commits específicos en tu repositorio.</p>
+                        <p><strong>Ejemplo:</strong> <code>git checkout feature/new-ui</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Current Branch → Seleccionar rama</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔤 D - G</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🔄 Diff</h4>
+                        <p><strong>Definición:</strong> La diferencia entre dos versiones de un archivo, mostrando líneas agregadas, modificadas o eliminadas.</p>
+                        <p><strong>Visual:</strong> <span style="color: green;">+ líneas agregadas</span>, <span style="color: red;">- líneas eliminadas</span></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Automático en la vista Changes</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🍴 Fork</h4>
+                        <p><strong>Definición:</strong> Crear una copia personal de un repositorio de otra persona en tu cuenta de GitHub.</p>
+                        <p><strong>Uso:</strong> Para contribuir a proyectos open source sin permisos directos</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub.com:</strong> Botón "Fork" en el repositorio</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📄 .gitignore</h4>
+                        <p><strong>Definición:</strong> Archivo que especifica qué archivos y carpetas debe ignorar Git.</p>
+                        <p><strong>Ejemplo:</strong> <code>node_modules/</code>, <code>*.log</code>, <code>.env</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>Ubicación:</strong> Raíz del proyecto</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🏠 GitHub</h4>
+                        <p><strong>Definición:</strong> Plataforma web que hospeda repositorios Git y proporciona herramientas de colaboración.</p>
+                        <p><strong>Servicios:</strong> Issues, Pull Requests, GitHub Pages, Actions, etc.</p>
+                        <div class="alert alert-success">
+                            <small><strong>Diferencia:</strong> Git = herramienta, GitHub = plataforma</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔤 H - M</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🏷️ HEAD</h4>
+                        <p><strong>Definición:</strong> Puntero que indica el commit actual en el que estás trabajando.</p>
+                        <p><strong>Uso común:</strong> <code>HEAD~1</code> (commit anterior), <code>HEAD~2</code> (dos commits atrás)</p>
+                        <div class="alert alert-success">
+                            <small><strong>Visualización:</strong> En History, el commit resaltado</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📊 Issue</h4>
+                        <p><strong>Definición:</strong> Herramienta de GitHub para reportar bugs, solicitar features o discutir mejoras.</p>
+                        <p><strong>Elementos:</strong> Título, descripción, labels, assignees, milestones</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub.com:</strong> Tab "Issues" en el repositorio</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔗 Merge</h4>
+                        <p><strong>Definición:</strong> Combinar cambios de una rama con otra, típicamente de feature branch a main.</p>
+                        <p><strong>Tipos:</strong> Fast-forward, three-way merge, squash merge</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Branch → Merge into current branch</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎯 Main/Master</h4>
+                        <p><strong>Definición:</strong> La rama principal del proyecto, contiene el código de producción estable.</p>
+                        <p><strong>Convención:</strong> "main" es el nuevo estándar, "master" es el antiguo</p>
+                        <div class="alert alert-success">
+                            <small><strong>Regla de oro:</strong> Nunca trabajar directamente en main</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔤 O - R</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>📦 Origin</h4>
+                        <p><strong>Definición:</strong> Nombre por defecto del repositorio remoto desde donde clonaste el proyecto.</p>
+                        <p><strong>Comando típico:</strong> <code>git push origin main</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> "Push origin" button</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔄 Pull</h4>
+                        <p><strong>Definición:</strong> Descargar y fusionar cambios del repositorio remoto a tu rama local.</p>
+                        <p><strong>Equivale a:</strong> <code>git fetch</code> + <code>git merge</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> "Pull origin" button</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📝 Pull Request (PR)</h4>
+                        <p><strong>Definición:</strong> Propuesta para fusionar cambios de una rama a otra, permite revisión y discusión antes del merge.</p>
+                        <p><strong>Proceso:</strong> Crear → Revisar → Aprobar → Merge</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> "Create Pull Request" button</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>⬆️ Push</h4>
+                        <p><strong>Definición:</strong> Subir commits locales al repositorio remoto.</p>
+                        <p><strong>Ejemplo:</strong> <code>git push origin feature/new-login</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> "Push origin" o "Publish branch"</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔄 Rebase</h4>
+                        <p><strong>Definición:</strong> Reescribir el historial de commits aplicando cambios de una rama sobre otra de forma lineal.</p>
+                        <p><strong>Ventaja:</strong> Historial más limpio sin commits de merge</p>
+                        <div class="alert alert-warning">
+                            <small><strong>Cuidado:</strong> Nunca rebase commits ya pusheados</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🗂️ Repository (Repo)</h4>
+                        <p><strong>Definición:</strong> Directorio que contiene tu proyecto y todo el historial de cambios gestionado por Git.</p>
+                        <p><strong>Contiene:</strong> Código, commits, ramas, tags, configuración</p>
+                        <div class="alert alert-success">
+                            <small><strong>Tipos:</strong> Local (tu máquina), Remote (GitHub)</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>↩️ Revert</h4>
+                        <p><strong>Definición:</strong> Crear un nuevo commit que deshace los cambios de un commit anterior.</p>
+                        <p><strong>Uso:</strong> Deshacer cambios problemáticos ya pusheados</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> History → Right click → Revert</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🔤 S - Z</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>📂 Staging Area</h4>
+                        <p><strong>Definición:</strong> Área intermedia donde preparas los cambios antes de hacer commit.</p>
+                        <p><strong>También llamado:</strong> Index, área de preparación</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Checkboxes junto a archivos modificados</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>💾 Stash</h4>
+                        <p><strong>Definición:</strong> Guardar temporalmente cambios no confirmados para trabajar en otra cosa.</p>
+                        <p><strong>Uso:</strong> Cambiar de rama sin perder trabajo en progreso</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Automático al cambiar ramas</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🏷️ Tag</h4>
+                        <p><strong>Definición:</strong> Etiqueta que marca un punto específico en el historial, típicamente para versiones.</p>
+                        <p><strong>Ejemplo:</strong> <code>v1.0.0</code>, <code>v2.1.3</code>, <code>release-2024</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>Uso común:</strong> Marcar releases de producción</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🌊 Upstream</h4>
+                        <p><strong>Definición:</strong> Repositorio original desde el cual hiciste fork, usado para mantener tu fork actualizado.</p>
+                        <p><strong>Configuración:</strong> <code>git remote add upstream [URL]</code></p>
+                        <div class="alert alert-success">
+                            <small><strong>Flujo:</strong> Origin (tu fork) ← Upstream (original)</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📁 Working Directory</h4>
+                        <p><strong>Definición:</strong> Tu carpeta de proyecto donde editas archivos, antes de staging y commit.</p>
+                        <p><strong>Estados:</strong> Modified, Staged, Committed</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Changes tab muestra archivos modificados</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔧 .gitconfig</h4>
+                        <p><strong>Definición:</strong> Archivo de configuración global de Git con tu identidad y preferencias.</p>
+                        <p><strong>Contiene:</strong> user.name, user.email, aliases, configuraciones</p>
+                        <div class="alert alert-success">
+                            <small><strong>Ubicación:</strong> <code>~/.gitconfig</code> (home directory)</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>🚀 Términos avanzados</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🔄 Cherry-pick</h4>
+                        <p><strong>Definición:</strong> Aplicar un commit específico de una rama a otra rama diferente.</p>
+                        <p><strong>Uso:</strong> Cuando necesitas solo un commit específico, no toda la rama</p>
+                        <div class="alert alert-warning">
+                            <small><strong>Nivel:</strong> Avanzado - usar con precaución</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔀 Fast-forward</h4>
+                        <p><strong>Definición:</strong> Tipo de merge donde no se crea commit de merge porque la rama objetivo no ha cambiado.</p>
+                        <p><strong>Visual:</strong> La rama simplemente "avanza" al último commit</p>
+                        <div class="alert alert-success">
+                            <small><strong>Resultado:</strong> Historial lineal y limpio</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📊 Git Flow</h4>
+                        <p><strong>Definición:</strong> Metodología de branching con ramas específicas: main, develop, feature, release, hotfix.</p>
+                        <p><strong>Para:</strong> Proyectos grandes con releases programados</p>
+                        <div class="alert alert-info">
+                            <small><strong>Alternativas:</strong> GitHub Flow, GitLab Flow</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔍 SHA/Hash</h4>
+                        <p><strong>Definición:</strong> Identificador único de 40 caracteres para cada commit.</p>
+                        <p><strong>Ejemplo:</strong> <code>a1b2c3d4e5f6...</code> (se puede abreviar: <code>a1b2c3d</code>)</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub Desktop:</strong> Visible en History tab</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔒 Squash</h4>
+                        <p><strong>Definición:</strong> Combinar múltiples commits en uno solo para limpiar el historial.</p>
+                        <p><strong>Cuándo usar:</strong> Antes de merge para evitar commits "WIP" o "fix typo"</p>
+                        <div class="alert alert-success">
+                            <small><strong>En GitHub:</strong> Opción "Squash and merge" en PR</small>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🏃‍♂️ CI/CD</h4>
+                        <p><strong>Definición:</strong> Continuous Integration/Continuous Deployment - automatización de tests y despliegues.</p>
+                        <p><strong>En GitHub:</strong> GitHub Actions, integración con cada push/PR</p>
+                        <div class="alert alert-info">
+                            <small><strong>Beneficio:</strong> Calidad y despliegues automáticos</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>💡 Consejo:</strong> No necesitas memorizar todos estos términos de inmediato. Guarda esta página como referencia y consulta los términos según los vayas necesitando en tu flujo de trabajo diario.
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comandos de referencia rápida</span>
+                        <button class="copy-btn" onclick="copyToClipboard('quick-reference')">Copiar</button>
+                    </div>
+                    <pre id="quick-reference">
+# Configuración inicial
+git config --global user.name "Tu Nombre"
+git config --global user.email "tu@email.com"
+
+# Flujo básico diario
+git status                    # Ver estado actual
+git add .                     # Agregar todos los cambios
+git commit -m "mensaje"       # Hacer commit
+git push origin rama          # Subir cambios
+
+# Trabajo con ramas
+git branch                    # Listar ramas
+git checkout -b nueva-rama    # Crear y cambiar a nueva rama
+git merge otra-rama          # Fusionar otra rama a la actual
+
+# Sincronización
+git pull origin main         # Bajar últimos cambios
+git fetch                    # Descargar sin fusionar</pre>
+                </div>
+            </section>
+
+            <section id="practica" class="section">
+                <h2>🎯 Área de práctica y contribuciones</h2>
+                
+                <div class="alert alert-info">
+                    <strong>¡Bienvenido al área de práctica!</strong> Aquí puedes practicar commits reales y hacer tu primera contribución al proyecto. Es un espacio seguro para aprender sin miedo a romper nada.
+                </div>
+
+                <h3>🎓 Cómo practicar</h3>
+                
+                <div class="workflow-diagram">
+                    <h4>Flujo de práctica recomendado</h4>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <strong>1. Fork</strong><br>
+                            <small>Crea tu copia del proyecto</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>2. Clone</strong><br>
+                            <small>Descarga a tu máquina</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>3. Edita</strong><br>
+                            <small>Agrega tu contribución</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>4. Commit</strong><br>
+                            <small>Guarda tus cambios</small>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <strong>5. PR</strong><br>
+                            <small>Propón tu cambio</small>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📝 Áreas donde puedes contribuir</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🌟 Galería de Contribuidores</h4>
+                        <p>Agrega tu nombre, GitHub username y una frase motivacional a la lista de contribuidores abajo.</p>
+                        <div class="alert alert-success">
+                            <strong>Dificultad:</strong> ⭐ Principiante<br>
+                            <strong>Archivo:</strong> <code>index.html</code> (sección contribuidores)
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🔧 Casos de Troubleshooting</h4>
+                        <p>¿Has resuelto un problema único? Comparte tu solución en la sección de problemas comunes.</p>
+                        <div class="alert alert-warning">
+                            <strong>Dificultad:</strong> ⭐⭐ Intermedio<br>
+                            <strong>Archivo:</strong> <code>index.html</code> (sección problemas)
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>📚 Comandos Útiles</h4>
+                        <p>Agrega comandos de Git que consideres esenciales o trucos que hayas aprendido.</p>
+                        <div class="alert alert-warning">
+                            <strong>Dificultad:</strong> ⭐⭐ Intermedio<br>
+                            <strong>Archivo:</strong> <code>index.html</code> (nueva subsección)
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎨 Mejoras de Diseño</h4>
+                        <p>Mejora el CSS, agrega animaciones, optimiza la experiencia móvil, o agrega modo oscuro.</p>
+                        <div class="alert alert-danger">
+                            <strong>Dificultad:</strong> ⭐⭐⭐ Avanzado<br>
+                            <strong>Archivos:</strong> <code>index.html</code>, CSS inline
+                        </div>
+                    </div>
+                </div>
+
+                <h3>📋 Tutorial paso a paso para tu primera contribución</h3>
+                
+                <div class="checklist">
+                    <h4>Preparación inicial</h4>
+                    <ul>
+                        <li>Haz <strong>Fork</strong> de este repositorio en GitHub</li>
+                        <li>Clona tu fork: <code>git clone https://github.com/TU-USERNAME/GitHubCheat.git</code></li>
+                        <li>Abre GitHub Desktop y agrega el repositorio local</li>
+                        <li>Crea una nueva rama: <code>feature/mi-primera-contribucion</code></li>
+                    </ul>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Comandos para clonar tu fork</span>
+                        <button class="copy-btn" onclick="copyToClipboard('fork-commands')">Copiar</button>
+                    </div>
+                    <pre id="fork-commands">
+# Clona tu fork (reemplaza TU-USERNAME)
+git clone https://github.com/TU-USERNAME/GitHubCheat.git
+cd GitHubCheat
+
+# Agrega el repositorio original como upstream
+git remote add upstream https://github.com/USUARIO-ORIGINAL/GitHubCheat.git
+
+# Verifica los remotos
+git remote -v</pre>
+                </div>
+
+                <div class="checklist">
+                    <h4>Haciendo tu contribución</h4>
+                    <ul>
+                        <li>Encuentra la sección "Galería de Contribuidores" más abajo</li>
+                        <li>Agrega tu información siguiendo el formato existente</li>
+                        <li>Guarda el archivo</li>
+                        <li>En GitHub Desktop, revisa tus cambios</li>
+                        <li>Haz commit con mensaje descriptivo: <code>feat: agregar [tu-nombre] a contribuidores</code></li>
+                        <li>Push de tu rama</li>
+                        <li>Crea Pull Request desde GitHub.com</li>
+                    </ul>
+                </div>
+
+                <h3>🏆 Galería de Contribuidores</h3>
+                
+                <div class="alert alert-info">
+                    <strong>¡Agrega tu nombre aquí!</strong> Esta es la forma más fácil de hacer tu primera contribución. Solo sigue el formato de los ejemplos.
+                </div>
+
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>👨‍💻 Creador del Proyecto</h4>
+                        <p><strong>Jorge</strong> - <a href="https://github.com/tu-usuario" target="_blank">@tu-usuario</a></p>
+                        <p><em>"Aprender Git es como aprender a conducir: al principio da miedo, pero después no puedes vivir sin ello."</em></p>
+                        <small>📅 Contribución inicial - Enero 2024</small>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎯 Ejemplo de Contribuidor</h4>
+                        <p><strong>Ana García</strong> - <a href="https://github.com/ana-dev" target="_blank">@ana-dev</a></p>
+                        <p><em>"GitHub Desktop me ayudó a perder el miedo a Git. ¡Ahora soy una pro en commits!"</em></p>
+                        <small>📅 Agregó sección de comandos útiles - Enero 2024</small>
+                    </div>
+
+                    <!-- 
+                    🎯 AGREGA TU CONTRIBUCIÓN AQUÍ
+                    
+                    Copia y pega este template, reemplaza con tu información:
+                    
+                    <div class="card">
+                        <h4>🌟 [Tu Nombre]</h4>
+                        <p><strong>[Tu Nombre Completo]</strong> - <a href="https://github.com/[tu-username]" target="_blank">@[tu-username]</a></p>
+                        <p><em>"[Tu frase motivacional sobre Git/GitHub/Programación]"</em></p>
+                        <small>📅 [Descripción de tu contribución] - [Mes Año]</small>
+                    </div>
+                    -->
+                </div>
+
+                <h3>💡 Ideas para contribuciones avanzadas</h3>
+                
+                <div class="grid grid-2">
+                    <div class="card">
+                        <h4>🔧 Funcionalidades</h4>
+                        <ul>
+                            <li>Modo oscuro toggle</li>
+                            <li>Buscador de comandos</li>
+                            <li>Generador de .gitignore</li>
+                            <li>Simulador de conflictos</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>📚 Contenido</h4>
+                        <ul>
+                            <li>Sección de GitHub Actions</li>
+                            <li>Guía de Git Hooks</li>
+                            <li>Workflows para equipos</li>
+                            <li>Integración con IDEs</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>🌍 Internacionalización</h4>
+                        <ul>
+                            <li>Traducción al inglés</li>
+                            <li>Versión en portugués</li>
+                            <li>Adaptación cultural</li>
+                            <li>Selector de idioma</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <h4>🎨 UX/UI</h4>
+                        <ul>
+                            <li>Animaciones CSS</li>
+                            <li>Mejores iconos</li>
+                            <li>Responsive design</li>
+                            <li>Accesibilidad mejorada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>🎉 ¡Reconocimiento especial!</strong> Todos los contribuidores serán mencionados en el README principal y sus contribuciones serán destacadas en redes sociales del proyecto.
+                </div>
+            </section>
+
+            <section id="playbook" class="section">
+                <h2>📋 Playbook rápido (checklist diario)</h2>
+
+                <div class="grid grid-2">
+                    <div class="checklist">
+                        <h3>🌅 Inicio del día</h3>
+                        <ul>
+                            <li>Abrir GitHub Desktop</li>
+                            <li>Pull latest changes de main</li>
+                            <li>Revisar si hay conflictos</li>
+                            <li>Crear nueva rama para el feature del día</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>💻 Durante el desarrollo</h3>
+                        <ul>
+                            <li>Commits pequeños y frecuentes</li>
+                            <li>Mensajes de commit descriptivos</li>
+                            <li>Push de la rama al menos 1x por día</li>
+                            <li>Revisar cambios antes de commit</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>🔄 Antes de crear PR</h3>
+                        <ul>
+                            <li>Pull latest de main</li>
+                            <li>Merge main en tu branch</li>
+                            <li>Resolver conflictos si los hay</li>
+                            <li>Test de funcionalidad completa</li>
+                            <li>Revisar todos los archivos cambiados</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>📤 Al crear Pull Request</h3>
+                        <ul>
+                            <li>Título claro y conciso</li>
+                            <li>Descripción detallada de cambios</li>
+                            <li>Screenshots si hay cambios visuales</li>
+                            <li>Asignar reviewers apropiados</li>
+                            <li>Linkear issues relacionados</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>✅ Después del merge</h3>
+                        <ul>
+                            <li>Cambiar a main branch</li>
+                            <li>Pull latest changes</li>
+                            <li>Borrar branch local mergeada</li>
+                            <li>Verificar deploy en producción</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>🚨 En caso de emergencia</h3>
+                        <ul>
+                            <li>Crear hotfix branch desde main</li>
+                            <li>Fix mínimo y enfocado</li>
+                            <li>Test exhaustivo del fix</li>
+                            <li>PR directo a main (fast-track)</li>
+                            <li>Deploy inmediato después del merge</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="alert alert-success">
+                    <strong>🎯 Regla de oro:</strong> Nunca trabajes directamente en <code>main</code>. Siempre usa ramas feature, siempre haz PR, siempre revisa antes de merge.
+                </div>
+
+                <h3>📝 Template de mensaje de commit</h3>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Convención de commits</span>
+                        <button class="copy-btn" onclick="copyToClipboard('commit-template')">Copiar</button>
+                    </div>
+                    <pre id="commit-template">
+# Formato: tipo(ámbito): descripción
+
+feat(auth): agregar validación de contraseñas
+fix(ui): corregir responsive en mobile
+docs(readme): actualizar instrucciones de instalación
+style(css): mejorar espaciado en header
+refactor(utils): simplificar función de validación
+test(auth): agregar tests para login</pre>
+                </div>
+
+                <h3>🏷️ Template de Pull Request</h3>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>Descripción de PR</span>
+                        <button class="copy-btn" onclick="copyToClipboard('pr-template')">Copiar</button>
+                    </div>
+                    <pre id="pr-template">
+## 📋 Descripción
+Breve descripción de los cambios realizados.
+
+## 🔧 Tipo de cambio
+- [ ] Bug fix (cambio que corrige un problema)
+- [ ] Nueva funcionalidad (cambio que agrega una funcionalidad)
+- [ ] Cambio que rompe compatibilidad (fix o feature que causaría que funcionalidad existente no funcione como se esperaba)
+- [ ] Mejora de documentación
+
+## 🧪 Testing
+- [ ] He testeado localmente
+- [ ] He agregado tests que prueban mi fix o funcionalidad
+- [ ] Tests nuevos y existentes pasan
+
+## 📸 Screenshots (si aplica)
+[Agregar capturas de pantalla]
+
+## 🔗 Issues relacionados
+Fixes #123</pre>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Cambiar el texto del botón temporalmente
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '¡Copiado!';
+                button.style.backgroundColor = '#1a7f37';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+                // Fallback para navegadores más antiguos
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = '¡Copiado!';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Smooth scroll para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
